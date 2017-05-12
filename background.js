@@ -5,11 +5,8 @@ chrome.browserAction.onClicked.addListener(function(tab) {
   alert("here!!!");
 });
 
-$( document ).ready(function(tab) {
-  var tabId = tab.id;
-  console.log("hi");
-  console.log(tabId);
-  console.log(tab);
+$( document ).ready(function() {
+  console.log("yeh");
 });
 
     chrome.tabs.getSelected(null, function(tab) {
@@ -20,3 +17,5 @@ $( document ).ready(function(tab) {
         console.log(taby);
         console.log(tabUrl);
     });
+
+console.log("hey there!!!!");

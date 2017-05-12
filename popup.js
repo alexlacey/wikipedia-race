@@ -1,3 +1,11 @@
+chrome.tabs.getSelected(null, function(tab) {
+    var taby = tab;
+    var tabUrl = tab.url;
+
+    console.log("hey there");
+    console.log(taby);
+    console.log(tabUrl);
+});
 $(document).ready(function() {
 
 	// declaring variables early
@@ -43,3 +51,4 @@ function clickHandler(e) {
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('click-me').addEventListener('click', clickHandler);
 });
+

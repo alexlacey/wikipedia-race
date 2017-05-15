@@ -12,12 +12,12 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://immense-stream-44778.herokuapp.com/"],
-      "js": ["content1.js"] 
-    }
+      "matches": ["https://immense-stream-44778.herokuapp.com/*"],
+      "js": ["jquery-3.2.1.min.js", "popup.js", "content1.js"] 
+    },
     { 
        "matches":["https://tranquil-taiga-73034.herokuapp.com/"], 
-      "js": ["content4.js"] 
+      "js": ["jquery-3.2.1.min.js", "popup.js", "content4.js"] 
     }
   ]
 

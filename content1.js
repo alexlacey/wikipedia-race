@@ -18,6 +18,12 @@ function startButton() {
   initialTime = Date.now();
   console.log(initialTime);
   window.open(startURL,'_blank')
+
+  // it must also send a message to the background to start the timer
+  chrome.runtime.sendMessage({greeting: "start the timer"}, function(response) {
+    console.log(response.farewell);
+  });
+
 }
 
 function endButton() {
@@ -37,9 +43,6 @@ function convertTime(milliseconds) {
   var minutes = leftPad(Math.floor(totalSeconds/60),2); 
   var seconds = leftPad(totalSeconds - minutes * 60,2); 
   var milli = leftPad(milliseconds - totalSeconds * 1000, 3);
-  console.log(minutes);
-  console.log(seconds);
-  console.log(milli);
   return minutes + ":" + seconds + ":" + milli;
 }
 
@@ -49,8 +52,3 @@ function leftPad (aNumber, aLength) {
   }
   return (Math.pow(10, aLength) + Math.floor(aNumber)).toString().substring(1); 
 }
-
-// it must send a message to the background to start the timer
-chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
-  console.log(response.farewell);
-});

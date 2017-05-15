@@ -10,3 +10,8 @@ function updateHTML() {
   document.getElementById("endTitle").innerHTML = endName;
   document.getElementById("startButton").setAttribute('action', startURL);
 }
+
+// it must send a message to the background to start the timer
+chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
+  console.log(response.farewell);
+});

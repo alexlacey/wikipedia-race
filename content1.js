@@ -43,3 +43,8 @@ function convertTime(milliseconds) {
     return (Math.pow(10, aLength) + Math.floor(aNumber)).toString().substring(1); 
   }
 }
+
+// it must send a message to the background to start the timer
+chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
+  console.log(response.farewell);
+});

@@ -29,19 +29,25 @@ function checkTime(){
   console.log(timeDifference);
   var formatted = convertTime(timeDifference);
   console.log(formatted);
-  document.getElementsByTagName("h5").innerHTML = '' + formatted;
+  document.getElementById("time").innerHTML = 'Your time was ' + formatted + ".";
 }
 
 function convertTime(milliseconds) {
   var totalSeconds = Math.floor(milliseconds/1000);
   var minutes = leftPad(Math.floor(totalSeconds/60),2); 
   var seconds = leftPad(totalSeconds - minutes * 60,2); 
-  where: function leftPad (aNumber, aLength) { 
-    if (aNumber.toString().length >= aLength) {
-      return aNumber; 
-    }
-    return (Math.pow(10, aLength) + Math.floor(aNumber)).toString().substring(1); 
+  var milli = leftPad(milliseconds - totalSeconds * 1000, 3);
+  console.log(minutes);
+  console.log(seconds);
+  console.log(milli);
+  return minutes + ":" + seconds + ":" + milli;
+}
+
+function leftPad (aNumber, aLength) { 
+  if (aNumber.toString().length >= aLength) {
+    return aNumber; 
   }
+  return (Math.pow(10, aLength) + Math.floor(aNumber)).toString().substring(1); 
 }
 
 // it must send a message to the background to start the timer

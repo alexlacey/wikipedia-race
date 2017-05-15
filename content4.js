@@ -1,0 +1,1 @@
+document.getElementById('timeDisplay').setAttribute('href', '#' + numberOfSeconds); // later on, we can add minutes and stuff, depending on the API

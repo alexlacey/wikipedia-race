@@ -18,6 +18,12 @@ function startButton() {
   initialTime = Date.now();
   console.log(initialTime);
   window.open(startURL,'_blank')
+
+  // it must also send a message to the background to start the timer
+  chrome.runtime.sendMessage({greeting: "start the timer"}, function(response) {
+    console.log(response.farewell);
+  });
+
 }
 
 function endButton() {
@@ -34,17 +40,12 @@ function checkTime(){
 
 function convertTime(milliseconds) {
   var totalSeconds = Math.floor(milliseconds/1000);
-  var minutes = leftPad(Math.floor(totalSeconds/60),2); 
-  var seconds = leftPad(totalSeconds - minutes * 60,2); 
-  where: function leftPad (aNumber, aLength) { 
+  var minutes = leftPad(Math.floor(totalSeconds/60),2);
+  var seconds = leftPad(totalSeconds - minutes * 60,2);
+  where: function leftPad (aNumber, aLength) {
     if (aNumber.toString().length >= aLength) {
-      return aNumber; 
+      return aNumber;
     }
-    return (Math.pow(10, aLength) + Math.floor(aNumber)).toString().substring(1); 
+    return (Math.pow(10, aLength) + Math.floor(aNumber)).toString().substring(1);
   }
 }
-
-// it must send a message to the background to start the timer
-chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
-  console.log(response.farewell);
-});

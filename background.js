@@ -49,6 +49,16 @@ chrome.runtime.onMessage.addListener(
     console.log(sender.tab ?
                 "from a content script:" + sender.tab.url :
                 "from the extension");
-    if (request.greeting == "hello")
-      sendResponse({farewell: "goodbye"});
+    if (request.greeting == "start the timer")
+      start_timer(); // function to start the timer
+      sendResponse({farewell: "it worked"});
   });
+
+// function start_timer() {
+//   console.log("function is executed")
+//   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+//     chrome.tabs.sendMessage(tabs[0].id, {greeting: "background received the message"}, function(response) {
+//       console.log("test message sent");
+//     });
+//   });
+// }

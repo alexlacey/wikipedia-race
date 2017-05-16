@@ -18,6 +18,8 @@
        "matches":["https://en.wikipedia.org/wiki/*", "https://tranquil-taiga-73034.herokuapp.com/*"],
       "js": ["content2.js"]
     }
+  ],
+  "web_accessible_resources": [
+    "vitalout.txt"
   ]
-
 }

@@ -14,7 +14,6 @@ function updateHTML() {
 
 function startButton() {
   initialTime = Date.now();
-  console.log(initialTime);
   window.open(startURL,'_blank')
   chrome.runtime.sendMessage({greeting: "start the timer"});
   chrome.runtime.sendMessage({greeting: "desired url", content: endURL});

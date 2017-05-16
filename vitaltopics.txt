@@ -987,4 +987,4 @@
 "Brahmic scripts",
 "Shen Kuo",
 "History of East Asia",
-"End of Communism in 1989" ]  
+"End of Communism in 1989" ]

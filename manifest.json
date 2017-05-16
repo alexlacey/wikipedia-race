@@ -15,8 +15,8 @@
       "js": ["jquery-3.2.1.min.js", "popup.js", "content1.js"]
     },
     {
-       "matches":["https://tranquil-taiga-73034.herokuapp.com/"],
-      "js": ["jquery-3.2.1.min.js", "popup.js", "content4.js"]
+       "matches":["https://en.wikipedia.org/wiki/*", "https://tranquil-taiga-73034.herokuapp.com/*"],
+      "js": ["content2.js"]
     }
   ]
 

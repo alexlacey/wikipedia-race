@@ -46,11 +46,11 @@ chrome.browserAction.onClicked.addListener(function(activeTab)
 // it must listen for the message from content1 telling it to start the timer
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-    console.log(sender.tab ?
-                "from a content script:" + sender.tab.url :
-                "from the extension");
-    if (request.greeting == "start the timer")
-      start_timer(); // function to start the timer
+    // console.log(sender.tab ?
+    //             "from a content script:" + sender.tab.url :
+    //             "from the extension");
+    // if (request.greeting == "start the timer")
+    //   start_timer(); // function to start the timer
       sendResponse({farewell: "it worked"});
   });
 

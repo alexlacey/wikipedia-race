@@ -1,5 +1,6 @@
 var initialTime;
 
+// Run these functions after a delay, so popup.js has time to make the API call
 $(document).ready(delayedChange());
 
 function delayedChange() {

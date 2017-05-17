@@ -4,6 +4,7 @@ var startURL;
 var endURL;
 
 $(document).ready(function() {
+  // Grab a random wikpedia page for the start page
   var xhr = new XMLHttpRequest();
   xhr.open("GET", "https://en.wikipedia.org/w/api.php?action=query&format=json&list=random&rnnamespace=0&rnlimit=1", true);
   xhr.send();
@@ -20,6 +21,8 @@ $(document).ready(function() {
       startURL = "https://en.wikipedia.org/wiki/" + startNameURL;
     }
   }
+  // Use one of the 1000 vital topic wikipedia pages for the end page
+  // Vital topics are found at https://en.wikipedia.org/wiki/User:Malerisch/views
   var xhr2 = new XMLHttpRequest();
   xhr2.open("GET", chrome.runtime.getURL("vitaltopics.txt"), true);
   xhr2.send();

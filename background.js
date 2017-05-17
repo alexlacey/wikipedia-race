@@ -1,25 +1,28 @@
 var initialTime;
 var endURL;
+var path = [];
 
-
+// Open the start page when user clicks on browser action
 chrome.browserAction.onClicked.addListener(function(activeTab)
 {
     var newURL = "https://immense-stream-44778.herokuapp.com/";
     chrome.tabs.create({ url: newURL });
 });
 
-// then it will automatically run the content1 script because of the url
-
-// it must listen for the message from content1 telling it to start the timer
+// Start the timer, check to see if the user has finished the race, or set the end URL based on messages
+// from the content script or from popup.js
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     if (request.greeting == "start the timer") {
       initialTime = Date.now();
     } 
     else if (request.greeting == "current url") {
-      // sendResponse({farewell: request.content + "!!!!!" + endURL});
+      path.push(request.content);
       if (request.content == endURL || request.content == "https://tranquil-taiga-73034.herokuapp.com/index.html") {
-        sendResponse({farewell: checkTime()});
+        sendResponse({farewell: checkTime(), userPath: path});
+        if (request.content == "https://tranquil-taiga-73034.herokuapp.com/index.html") {
+          path = [];
+        }
       }
     }
     else if (request.greeting == "desired url") {
@@ -27,6 +30,8 @@ chrome.runtime.onMessage.addListener(
     }
 
   });
+
+// The following three functions are code to find the time elapsed
 
 function checkTime(){
   var timeDifference = Date.now() - initialTime;

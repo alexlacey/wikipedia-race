@@ -1,6 +1,6 @@
 # Wikipedia Wars
 
-This app allows people to race to see who can reach a destination Wikipedia page the fastest.
+This app allows people to race to see who can reach a destination Wikipedia page the fastest. We use the Wikipedia API to generate random pages.
 
 The start page is hosted at https://immense-stream-44778.herokuapp.com and the source code can be found at https://github.com/wangandrew/wikipedia-wars-start-page
 

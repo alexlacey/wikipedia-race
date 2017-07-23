@@ -1,4 +1,4 @@
-# Wikipedia Wars
+# Wikipedia Race
 
 This app allows people to race to see who can reach a destination Wikipedia page the fastest. We use the Wikipedia API to generate random pages.
 
